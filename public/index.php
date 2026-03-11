@@ -5,8 +5,6 @@ if (session_status() === PHP_SESSION_NONE)
     session_start();
 }
 
-/* ROUTER */
-
 $request = $_SERVER['REQUEST_URI'];
 
 $base = "/Phonexa-MVC/";
@@ -106,13 +104,10 @@ switch ($page)
         $action = "logout";
         break;
 
-
     default:
         header("Location: /Phonexa-MVC/Login");
         exit;;
 }
-
-/* CONTROLLER LOAD */
 
 $controllerName = ucfirst($controller) . "Controller";
 $controllerFile = "../app/controllers/" . $controllerName . ".php";
