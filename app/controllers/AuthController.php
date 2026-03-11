@@ -7,10 +7,6 @@ class AuthController {
 
     public function __construct() 
     {
-        if (session_status() === PHP_SESSION_NONE) 
-        {
-            session_start();
-        }
         $this->user = new User();
     }
 

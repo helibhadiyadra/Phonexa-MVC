@@ -5,14 +5,114 @@ if (session_status() === PHP_SESSION_NONE)
     session_start();
 }
 
-$controller = $_GET['controller'] ?? 'auth';
-$action = $_GET['action'] ?? 'login';
+/* ROUTER */
 
-if (!isset($_SESSION['user']) && !($controller === 'auth' && $action === 'login')) 
+$request = $_SERVER['REQUEST_URI'];
+
+$base = "/Phonexa-MVC/";
+$route = str_replace($base, "", $request);
+$route = trim($route, "/");
+
+$segments = explode("/", $route);
+
+$page = $segments[0] ?? "Login";
+$id   = $segments[1] ?? null;
+
+switch ($page)
 {
-    header("Location: /Phonexa-MVC/Login");
-    exit;
+    case "Dashboard":
+        $controller = "admin";
+        $action = "dashboard";
+        break;
+
+    case "Profile":
+        $controller = "admin";
+        $action = "profile";
+        break;
+
+    case "ProductList":
+        $controller = "product";
+        $action = "index";
+        break;
+
+    case "AddProduct":
+        $controller = "product";
+        $action = "create";
+        break;
+
+    case "EditProduct":
+        $controller = "product";
+        $action = "edit";
+        $_GET['id'] = $id;
+        break;
+
+    case "UpdateProduct":
+        $controller = "product";
+        $action = "update";
+        break;
+
+    case "ViewProduct":
+        $controller = "product";
+        $action = "view";
+        $_GET['id'] = $id;
+        break;
+
+    case "DeleteProduct":
+        $controller = "product";
+        $action = "delete";
+        $_GET['id'] = $id;
+        break;
+
+    case "BrandList":
+        $controller = "brand";
+        $action = "index";
+        break;
+    
+    case "AddBrand":
+        $controller = "brand";
+        $action = "create";
+        break;
+
+    case "EditBrand":
+        $controller = "brand";
+        $action = "edit";
+        $_GET['id'] = $id;
+        break;
+
+    case "UpdateBrand":
+        $controller = "brand";
+        $action = "update";
+        break;
+
+    case "ViewBrand":
+        $controller = "brand";
+        $action = "view";
+        $_GET['id'] = $id;
+        break;
+
+    case "DeleteBrand":
+        $controller = "brand";
+        $action = "delete";
+        $_GET['id'] = $id;
+        break;
+
+    case "Login":
+        $controller = "auth";
+        $action = "login";
+        break;
+
+    case "Logout":   
+        $controller = "auth";
+        $action = "logout";
+        break;
+
+
+    default:
+        header("Location: /Phonexa-MVC/Login");
+        exit;;
 }
+
+/* CONTROLLER LOAD */
 
 $controllerName = ucfirst($controller) . "Controller";
 $controllerFile = "../app/controllers/" . $controllerName . ".php";
@@ -36,3 +136,4 @@ else
 {
     echo "Controller not found";
 }
+

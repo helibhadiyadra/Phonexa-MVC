@@ -11,6 +11,7 @@ class User
         $this->conn = $database->connect();
     }
 
+    
     public function findByEmail($email)
     {
         $query = "SELECT * FROM users WHERE email='$email' LIMIT 1";

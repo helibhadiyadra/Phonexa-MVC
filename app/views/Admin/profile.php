@@ -80,9 +80,14 @@ a
 
 <h2>Update Profile</h2>
 
-<?php if(isset($success)) { ?>
+<?php if(isset($error)) : ?>
+<p style="color:red;"><?php echo $error; ?></p>
+<?php endif; ?>
+
+<?php if(isset($success)) : ?>
 <p style="color:green;"><?php echo $success; ?></p>
-<?php } ?>
+<?php endif; ?>
+
 
 <form method="POST">
 
@@ -94,6 +99,9 @@ a
 
 <label>Email</label>
 <input type="email" name="email" class="form-control" value="<?php echo $_SESSION['user']['email']; ?>" required>
+
+<label>Old Password</label>
+<input type="password" name="old_password" class="form-control" required>
 
 <label>New Password</label>
 <input type="password" name="password" class="form-control"placeholder="Leave blank if not changing">

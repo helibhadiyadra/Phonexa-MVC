@@ -9,7 +9,7 @@
             margin: 0;
             font-family: Arial;
             display: flex;
-            overflow: hidden;
+            height: 100vh;
         }
         .sidebar 
         {

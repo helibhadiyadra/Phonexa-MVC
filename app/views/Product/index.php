@@ -1,7 +1,7 @@
 <?php
 /** @var mysqli_result $products */
 ?>
-
+<?php include __DIR__ . '/../layouts/admin_header.php'; ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,14 +14,13 @@ body
 {
     font-family: Arial, sans-serif;
     background: #f4f6f9;
-    margin: 0;
-    padding: 40px;
 }
 h2 
 {
     text-align: center;
     margin-bottom: 30px;
-    margin-top: -10px;
+    margin-top: -5px;
+    font-size: 28px;
 }
 table 
 {
@@ -84,6 +83,7 @@ a
     text-decoration: none;
     border-radius: 8px;
     font-size: 18px;
+    margin-top: 40px;
 }
 .status-active
 {
@@ -94,18 +94,6 @@ a
 {
     color: red;
     font-weight: bold;
-}
-.back-btn
-{
-    display: block;
-    width: fit-content;
-    margin: 20px auto;   
-    padding: 8px 20px;
-    background: black;
-    color: white;
-    text-decoration: none;
-    border-radius: 6px;
-    font-size: 21px;
 }
 .alert-success
 {
@@ -197,6 +185,6 @@ a
 
 </table>
 
-<a class="back-btn" href="/Phonexa-MVC/Dashboard">Back</a>
 </body>
 </html>
+<?php include __DIR__ . '/../layouts/admin_footer.php'; ?>

@@ -1,53 +1,7 @@
 RewriteEngine On
 RewriteBase /Phonexa-MVC/public/
 
-# Remove index.php from URL
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
-# Admin
-RewriteRule ^Dashboard$ index.php?controller=admin&action=dashboard [L,QSA,NC]
-RewriteRule ^Profile$ index.php?controller=admin&action=profile [L,QSA]
-
-# Auth
-RewriteRule ^Login$ index.php?controller=auth&action=login [L,QSA]
-RewriteRule ^Logout$ index.php?controller=auth&action=logout [L,QSA]
-
-# Product List
-RewriteRule ^ProductList$ index.php?controller=product&action=index [L,QSA]
-
-# Add Product
-RewriteRule ^AddProduct$ index.php?controller=product&action=create [L,QSA]
-
-# Edit Product
-RewriteRule ^EditProduct/([0-9]+)$ index.php?controller=product&action=edit&id=$1 [L,QSA]
-
-# Update Product
-RewriteRule ^UpdateProduct$ index.php?controller=product&action=update [L,QSA]
-
-# Delete Product
-RewriteRule ^DeleteProduct/([0-9]+)$ index.php?controller=product&action=delete&id=$1 [L,QSA]
-
-# View Product
-RewriteRule ^ViewProduct/([0-9]+)$ index.php?controller=product&action=view&id=$1 [L,QSA]
-
-# Brand List
-RewriteRule ^BrandList$ index.php?controller=brand&action=index [L,QSA]
-
-# Add Product
-RewriteRule ^AddBrand$ index.php?controller=brand&action=create [L,QSA]
-
-# Edit Product
-RewriteRule ^EditBrand/([0-9]+)$ index.php?controller=brand&action=edit&id=$1 [L,QSA]
-
-# Update Product
-RewriteRule ^UpdateBrand$ index.php?controller=brand&action=update [L,QSA]
-
-# Delete Product
-RewriteRule ^DeleteBrand/([0-9]+)$ index.php?controller=brand&action=delete&id=$1 [L,QSA]
-
-# View Product
-RewriteRule ^ViewBrand/([0-9]+)$ index.php?controller=brand&action=view&id=$1 [L,QSA]
-
-# Default
-RewriteRule ^$ index.php [L]
+RewriteRule ^(.*)$ index.php [QSA,L]

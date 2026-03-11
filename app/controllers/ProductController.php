@@ -8,11 +8,6 @@ class ProductController
 
     public function __construct()
     {
-        if (session_status() === PHP_SESSION_NONE) 
-        {
-            session_start();
-        }
-
         if (!isset($_SESSION['user']))
         {
             header("Location: /Phonexa-MVC/Login");
@@ -127,7 +122,7 @@ class ProductController
         $this->product->update($id, $name, $description, $price, $status, $imageToSave, $brand_id);
 
         $_SESSION['success'] = "Record $id updated successfully";
-        header("Location: ProductList");
+        header("Location: /Phonexa-MVC/ProductList");
         exit;
     }
 
