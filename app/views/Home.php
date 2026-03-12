@@ -149,7 +149,7 @@ button
 </div>
 
 
-<script src="/phonexa-mvc/public/js/home.js"></script>
+<script src="/Phonexa-MVC/public/js/Home.js"></script>
 
 </body>
 </html>
