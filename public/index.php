@@ -16,8 +16,26 @@ $segments = explode("/", $route);
 $page = $segments[0] ?? "Login";
 $id   = $segments[1] ?? null;
 
-switch ($page)
+$publicPages = ["", "Home","Login", "ProductDetail", "FilterBrand", "SearchBrand"];
+
+if (!isset($_SESSION['user']) && !in_array($page, $publicPages))
 {
+    header("Location: /Phonexa-MVC/Login");
+    exit;
+}
+
+switch ($page)
+{ 
+    case "":
+        $controller = "home";
+        $action = "index";
+        break;
+
+    case "Home":
+        $controller = "home";
+        $action = "index";
+        break;
+    
     case "Dashboard":
         $controller = "admin";
         $action = "dashboard";
@@ -102,6 +120,22 @@ switch ($page)
     case "Logout":   
         $controller = "auth";
         $action = "logout";
+        break;
+
+    case "FilterBrand":
+        $controller = "product";
+        $action = "filterByBrand";
+        break;
+
+    case "SearchBrand":
+        $controller = "product";
+        $action = "searchBrand";
+        break;
+
+    case "ProductDetail":
+        $controller = "product";
+        $action = "detail";
+        $_GET['id'] = $id;
         break;
 
     default:

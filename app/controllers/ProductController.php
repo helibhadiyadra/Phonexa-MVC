@@ -8,6 +8,20 @@ class ProductController
 
     public function __construct()
     {
+        $this->product = new Product();  
+        
+        $publicRoutes = ["ProductDetail", "FilterBrand", "SearchBrand"];
+
+        $request = $_SERVER['REQUEST_URI'];
+
+        foreach ($publicRoutes as $route)
+        {
+            if (strpos($request, $route) !== false)
+            {
+                return;
+            }
+        }
+
         if (!isset($_SESSION['user']))
         {
             header("Location: /Phonexa-MVC/Login");
@@ -158,5 +172,43 @@ class ProductController
         $product = mysqli_fetch_assoc($result);
 
         require_once __DIR__ . '/../views/Product/view.php';
+    }
+
+
+    /*Website*/
+    public function filterByBrand()
+    {
+        $brand_id = $_POST['brand_id'];
+
+        $productModel = new Product();
+        $products = $productModel->getProductsByBrand($brand_id);
+
+        echo json_encode($products);
+    }
+
+    public function searchBrand()
+    {
+        $brand = $_POST['brand'];
+
+        $productModel = new Product();
+        $products = $productModel->searchBrandProducts($brand);
+
+        echo json_encode($products);
+    }
+    public function detail()
+    {
+
+        if (!isset($_GET['id']) || empty($_GET['id']))
+        {
+            echo "Product not found";
+            return;
+        }
+
+        $id = $_GET['id'];
+
+        $result = $this->product->getById($id);
+        $product = mysqli_fetch_assoc($result);
+
+        require_once __DIR__ . '/../views/product_detail.php';
     }
 }

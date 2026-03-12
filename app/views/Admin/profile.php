@@ -92,19 +92,19 @@ a
 <form method="POST">
 
 <label>First Name</label>
-<input type="text" name="first_name" class="form-control" value="<?php echo $_SESSION['user']['first_name']; ?>" required>
+<input type="text" name="first_name" class="form-control" value="<?php echo $_SESSION['user']['first_name']; ?>">
 
 <label>Last Name</label>
-<input type="text" name="last_name" class="form-control" value="<?php echo $_SESSION['user']['last_name']; ?>" required>
+<input type="text" name="last_name" class="form-control" value="<?php echo $_SESSION['user']['last_name']; ?>">
 
 <label>Email</label>
-<input type="email" name="email" class="form-control" value="<?php echo $_SESSION['user']['email']; ?>" required>
+<input type="email" name="email" class="form-control" value="<?php echo $_SESSION['user']['email']; ?>">
 
 <label>Old Password</label>
-<input type="password" name="old_password" class="form-control" required>
+<input type="password" name="old_password" class="form-control" placeholder="Enter Old Password">
 
 <label>New Password</label>
-<input type="password" name="password" class="form-control"placeholder="Leave blank if not changing">
+<input type="password" name="password" class="form-control" placeholder="Leave blank if not changing">
 
 <button type="submit">Update Profile</button>
 

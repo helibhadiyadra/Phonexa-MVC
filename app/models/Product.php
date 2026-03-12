@@ -22,6 +22,7 @@ class Product
 
     public function getById($id)
     {
+        $id = intval($id);
         $query = "SELECT products.*, brands.name AS brand_name 
                   FROM products 
                   LEFT JOIN brands ON products.brand_id = brands.id
@@ -60,5 +61,51 @@ class Product
         $result = mysqli_query($this->conn, $query);
         $row = mysqli_fetch_assoc($result);
         return $row['total'];
+    }
+
+    /*Website*/
+    public function getAllProducts()
+    {
+        $query = "SELECT * FROM products";
+        $result = mysqli_query($this->conn, $query);
+
+        $products = [];
+        while ($row = mysqli_fetch_assoc($result))
+        {
+            $products[] = $row;
+        }
+
+        return $products;
+    }
+
+    public function getProductsByBrand($brand_id)
+    {
+        $query = "SELECT * FROM products WHERE brand_id = $brand_id";
+        $result = mysqli_query($this->conn, $query);
+
+        $products = [];
+        while ($row = mysqli_fetch_assoc($result))
+        {
+            $products[] = $row;
+        }
+
+        return $products;
+    }
+
+    public function searchBrandProducts($brand_name)
+    {
+        $query = "SELECT p.* FROM products p
+                JOIN brands b ON p.brand_id = b.id
+                WHERE b.name LIKE '%$brand_name%'";
+
+        $result = mysqli_query($this->conn, $query);
+
+        $products = [];
+        while ($row = mysqli_fetch_assoc($result))
+        {
+            $products[] = $row;
+        }
+
+        return $products;
     }
 }

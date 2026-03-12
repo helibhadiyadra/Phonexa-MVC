@@ -57,4 +57,20 @@ class Brand
         $row = mysqli_fetch_assoc($result);
         return $row['total'];
     }
+
+    /*Website*/
+    public function getAllBrands()
+    {
+        $query = "SELECT * FROM brands";
+        $result = mysqli_query($this->conn, $query);
+
+        $brands = [];
+
+        while ($row = mysqli_fetch_assoc($result))
+        {
+            $brands[] = $row;
+        }
+
+        return $brands;
+    }
 }
