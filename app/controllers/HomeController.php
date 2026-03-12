@@ -13,6 +13,6 @@ class HomeController
         $products = $productModel->getAllProducts();
         $brands = $brandModel->getAllBrands();
 
-        require "../app/views/home.php";
+        require "../app/views/Home.php";
     }
 }
