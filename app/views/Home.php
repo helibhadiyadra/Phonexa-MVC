@@ -94,6 +94,27 @@ button
     margin:10px 25px;
     align-items: center;
 }
+.pagination
+{
+    text-align:center;
+    margin-top:30px;
+}
+
+.pagination button
+{
+    padding:8px 14px;
+    margin:5px;
+    border:1px solid #ccc;
+    background:#333;
+    color: white;
+    cursor:pointer;
+}
+
+.pagination button:hover
+{
+    background:black;
+    color:white;
+}
 
 </style>
 
@@ -148,6 +169,22 @@ button
 
 </div>
 
+<?php if($totalPages > 1): ?>
+
+<div class="pagination" id="pagination">
+
+<?php for($i = 1; $i <= $totalPages; $i++): ?>
+
+<form method="POST" action="Home" style="display:inline;">
+    <input type="hidden" name="page" value="<?php echo $i; ?>">
+    <button type="submit"><?php echo $i; ?></button>
+</form>
+
+<?php endfor; ?>
+
+</div>
+
+<?php endif; ?>
 
 <script src="/Phonexa-MVC/public/js/Home.js"></script>
 

@@ -1,7 +1,7 @@
 </div>
 
 <footer style="
-    background:#111;
+    background:black;
     color:white;
     text-align:center;
     padding:20px;

@@ -53,7 +53,14 @@ switch ($page)
 
     case "AddProduct":
         $controller = "product";
-        $action = "create";
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') 
+        {
+            $action = "store";
+        } 
+        else 
+        {
+            $action = "create";
+        }
         break;
 
     case "EditProduct":
@@ -86,7 +93,14 @@ switch ($page)
     
     case "AddBrand":
         $controller = "brand";
-        $action = "create";
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') 
+        {
+            $action = "store";
+        } 
+        else 
+        {
+            $action = "create";
+        }
         break;
 
     case "EditBrand":

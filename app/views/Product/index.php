@@ -10,6 +10,11 @@
 <body>
 
 <style>
+.topbar a
+{
+    font-size: 17.5px;
+    margin-left: 6px;
+}
 body 
 {
     font-family: Arial, sans-serif;
@@ -19,7 +24,7 @@ h2
 {
     text-align: center;
     margin-bottom: 30px;
-    margin-top: -5px;
+    margin-top: -1px;
     font-size: 28px;
 }
 table 
@@ -74,7 +79,7 @@ a
 .add-btn 
 {
     position: absolute;
-    right: 110px;
+    right: 85px;
     top: 6%;
     transform: translateY(-50%);
     background-color: black;
@@ -83,7 +88,7 @@ a
     text-decoration: none;
     border-radius: 8px;
     font-size: 18px;
-    margin-top: 40px;
+    margin-top: 45px;
 }
 .status-active
 {

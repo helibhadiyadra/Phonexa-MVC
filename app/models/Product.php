@@ -108,4 +108,34 @@ class Product
 
         return $products;
     }
+
+    /*Pagination*/
+    public function getProductsPaginated($limit, $offset)
+    {
+        $sql = "SELECT * FROM products LIMIT $limit OFFSET $offset";
+        return $this->conn->query($sql);
+    }
+    public function getTotalProducts()
+    {
+        $sql = "SELECT COUNT(*) as total FROM products";
+        $result = $this->conn->query($sql);
+        $row = $result->fetch_assoc();
+        return $row['total'];
+    }
+    public function filterProducts($search, $brand)
+    {
+        $sql = "SELECT * FROM products WHERE 1=1";
+
+        if($search != '')
+        {
+            $sql .= " AND name LIKE '%$search%'";
+        }
+
+        if($brand != '')
+        {
+            $sql .= " AND brand_id = '$brand'";
+        }
+
+        return $this->conn->query($sql);
+    }
 }

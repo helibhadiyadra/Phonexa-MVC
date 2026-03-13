@@ -10,6 +10,7 @@
             font-family: Arial;
             display: flex;
             height: 100vh;
+            font-size: 17px;
         }
         .sidebar 
         {
@@ -77,6 +78,9 @@
         .topbar a
         {
             margin-left: 20px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 17.5px;
         }
         .topbar i
         {

@@ -76,7 +76,7 @@ button
 </style>
 <h2>Add Brand</h2>
 
-<form action="/Phonexa-MVC/CreateBrand" method="POST" enctype="multipart/form-data">
+<form action="/Phonexa-MVC/AddBrand" method="POST" enctype="multipart/form-data">
 
     <label>Brand Name:</label><br>
     <input type="text" name="name" required><br><br>

@@ -9,16 +9,22 @@
 </head>
 <body>
 <style>
+.topbar a
+{
+    font-size: 17.5px;
+    margin-left: 6px;
+}
 body 
 {
     font-family: Arial, sans-serif;
     background: #f4f6f9;
+    font-size: 17px;
 }
 h2 
 {
     text-align: center;
     margin-bottom: 30px;
-    margin-top: -5px;
+    margin-top: -1px;
     font-size: 28px;
 }
 table 
@@ -81,7 +87,7 @@ a
     background-color: black;
     color: white;
     padding: 8px 20px;
-    margin-top: 40px;
+    margin-top: 43px;
     text-decoration: none;
     border-radius: 8px;
     font-size: 18px;

@@ -79,7 +79,7 @@ h3
 <p><strong>ID:</strong> <?php echo $brand['id']; ?></p>
 <p><strong>Name:</strong> <?php echo $brand['name']; ?></p>
 <p><strong>Image:</strong><br>
-    <img src="/Phonexa-MVC/public/uploads/<?php echo $brand['image']; ?>" height="200" width="200">
+    <img src="/Phonexa-MVC/public/uploads/<?php echo $brand['image']; ?>" height="200" width="180">
 </p>
 <hr style="width:40%; margin:25px auto;">
 

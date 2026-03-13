@@ -1,35 +1,34 @@
-// document.ready() Event
-$(document).ready(function(){
+// DOMContentLoaded() Event
+document.addEventListener("DOMContentLoaded", function(){
 
 // BRAND FILTER -> change() Event
 
-$("#brandFilter").change(function(){
+document.getElementById("brandFilter").addEventListener("change", function(){
 
-let brand_id = $(this).val();
+let brand_id = this.value;
 
-$.ajax({
 
-url:"/Phonexa-MVC/FilterBrand",
-method:"POST",
-
-data:{
-brand_id:brand_id
+fetch("/Phonexa-MVC/FilterBrand", {
+method: "POST",
+headers: {
+"Content-Type": "application/x-www-form-urlencoded"
 },
+body: "brand_id=" + brand_id
+})
 
-success:function(response){
-
-let products = JSON.parse(response);
+.then(response => response.json())
+.then(products => {
 
 let html="";
 
 products.forEach(product=>{
 
-html+=`
+html += `
 <div class="product-card">
 
 <h4>${product.name}</h4>
 
-<p style="font-size: 16px">${product.description}</p>
+<p style="font-size:16px">${product.description}</p>
 
 <p>${product.price}</p>
 
@@ -40,8 +39,13 @@ html+=`
 
 });
 
-$("#productContainer").html(html);
+document.getElementById("productContainer").innerHTML = html;
 
+// Hide Pagination
+let pagination = document.getElementById("pagination");
+if(pagination)
+{
+    pagination.style.display = "none";
 }
 
 });
@@ -50,33 +54,32 @@ $("#productContainer").html(html);
 
 // SEARCH BRAND -> click() Event
 
-$("#searchBtn").click(function(){
+document.getElementById("searchBtn").addEventListener("click", function(){
 
-let brand=$("#brandSearch").val();
+let brand = document.getElementById("brandSearch").value;
 
-$.ajax({
 
-url:"/Phonexa-MVC/SearchBrand",
-method:"POST",
-
-data:{
-brand:brand
+fetch("/Phonexa-MVC/SearchBrand", {
+method: "POST",
+headers: {
+"Content-Type": "application/x-www-form-urlencoded"
 },
+body: "brand=" + brand
+})
 
-success:function(response){
-
-let products = JSON.parse(response);
+.then(response => response.json())
+.then(products => {
 
 let html="";
 
 products.forEach(product=>{
 
-html+=`
+html += `
 <div class="product-card">
 
 <h4>${product.name}</h4>
 
-<p style="font-size: 16px">${product.description}</p>
+<p style="font-size:16px">${product.description}</p>
 
 <p>${product.price}</p>
 
@@ -87,8 +90,13 @@ html+=`
 
 });
 
-$("#productContainer").html(html);
+document.getElementById("productContainer").innerHTML = html;
 
+// Hide Pagination
+let pagination = document.getElementById("pagination");
+if(pagination)
+{
+    pagination.style.display = "none";
 }
 
 });

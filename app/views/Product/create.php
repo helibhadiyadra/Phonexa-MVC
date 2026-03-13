@@ -77,7 +77,7 @@ button
 </style>
 <h2>Add Product</h2>
 
-<form action="/Phonexa-MVC/CreateProduct" method="POST" enctype="multipart/form-data">
+<form action="/Phonexa-MVC/AddProduct" method="POST" enctype="multipart/form-data">
 
     <label>Product Name:</label><br>
     <input type="text" name="name" required><br><br>

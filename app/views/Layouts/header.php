@@ -14,7 +14,7 @@
     {
         display:flex;
         align-items:center;
-        background:#111;
+        background: black;
         padding:8px 40px;
     }
     .logo
@@ -54,7 +54,7 @@
 <div class="navbar">
 
     <div class="logo">
-        <img src="/Phonexa-MVC/public/image/logo_phonexa.png">
+        <img src="/Phonexa-MVC/public/image/phonexa_logo.png">
     </div>
 
     <div class="nav-links">
